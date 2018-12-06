@@ -6,6 +6,7 @@
 #include <chrono>
 #include <fstream>
 #include <unordered_map>
+#include <iomanip>
 
 #include "Image.h"
 #include "PGM.h"
@@ -83,7 +84,7 @@ void run_test(const string &name, int iter) {
 
     auto duration =  high_resolution_clock::now() - start;
     std::cout << name << " x " << to_string(iter) << '\n';
-    std::cout << "ms: " << duration_cast<milliseconds>(duration).count() << '\n';
+    std::cout << "ms: " << std::setprecision(2) << std::fixed << (double) duration_cast<microseconds>(duration).count() / 1000 << '\n';
 }
 
 struct CreateSmallAlpha {
@@ -426,21 +427,21 @@ struct ImageMax {
 int main(int argc, char *argv[]) {
 
     try {
-        run_test<CreateSmallAlpha>("CreateSmallAlpha", 40);
-        run_test<CreateSmallPGM>("CreateSmallPGM", 40);
+        run_test<CreateSmallAlpha>("CreateSmallAlpha", 10);
+        run_test<CreateSmallPGM>("CreateSmallPGM", 10);
         run_test<CreateLargeAlpha>("CreateLargeAlpha", 2);
         run_test<CreateLargePGM>("CreateLargePGM", 1);
 
-        run_test<WriteSmallAlpha>("WriteSmallAlpha", 30);
-        run_test<WriteSmallPGM>("WriteSmallPGM", 30);
-        run_test<WriteLargeAlpha>("WriteLargeAlpha", 4);
+        run_test<WriteSmallAlpha>("WriteSmallAlpha", 10);
+        run_test<WriteSmallPGM>("WriteSmallPGM", 10);
+        run_test<WriteLargeAlpha>("WriteLargeAlpha", 2);
         run_test<WriteLargePGM>("WriteLargePGM", 1);
 
-        run_test<Resize>("Resize", 2);
-        run_test<Mirror>("Mirror", 4);
+        run_test<Resize>("Resize", 6);
+        run_test<Mirror>("Mirror", 20);
 
         run_test<Rotate90>("Rotate90", 1);
-        run_test<Rotate180>("Rotate180", 4);
+        run_test<Rotate180>("Rotate180", 6);
         run_test<Rotate270>("Rotate270", 1);
 
         run_test<ImageMin>("Min", 1);
