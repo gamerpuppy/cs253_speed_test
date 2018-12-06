@@ -1,2 +1,3 @@
-out_images*
+out_images/*.pgm
+out_images/*.alpha
 speed_test
