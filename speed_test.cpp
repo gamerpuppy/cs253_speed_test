@@ -13,12 +13,12 @@
 using namespace std;
 
 const string destdir = "./out_images/";
-const string srcdir - "./images";
+const string srcdir = "./input_images/";
 
 std::unordered_map<string,Image*> image_map;
 
 void create(string filename) {
-    Image *im = Image::create(filename);
+    Image *im = Image::create(srcdir+filename);
     if(image_map.find(filename) == image_map.end())
         image_map.insert( make_pair <string, Image*>((string)filename,(Image*)im));
     else
@@ -230,14 +230,14 @@ struct ResizeAlpha : public TestObject {
 int main(int argc, char *argv[]) {
 
     try {
-        CreateSmallAlpha().run_test("CreateSmallAlpha", 100);
+        //CreateSmallAlpha().run_test("CreateSmallAlpha", 100);
         CreateSmallPGM().run_test("CreateSmallPGM", 100);
         CreateLargeAlpha().run_test("CreateLargeAlpha", 1);
         CreateLargePGM().run_test("CreateLargePGM", 1);
 
-        WriteSmallAlpha().run_test("WriteSmallAlpha", 100);
-        WriteSmallPGM().run_test("WriteSmallPGM", 100);
-        WriteLargeAlpha().run_test("WriteLargeAlpha", 1);
+        //WriteSmallAlpha().run_test("WriteSmallAlpha", 100);
+        //WriteSmallPGM().run_test("WriteSmallPGM", 100);
+		WriteLargeAlpha().run_test("WriteLargeAlpha", 1);
         WriteLargePGM().run_test("WriteLargePGM", 1);
 
         ResizeAlpha().run_test("ResizeAlpha", 1);
