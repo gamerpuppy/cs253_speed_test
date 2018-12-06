@@ -426,7 +426,6 @@ struct ImageMax {
 int main(int argc, char *argv[]) {
 
     try {
-<<<<<<< HEAD
         run_test<CreateSmallAlpha>("CreateSmallAlpha", 40);
         run_test<CreateSmallPGM>("CreateSmallPGM", 40);
         run_test<CreateLargeAlpha>("CreateLargeAlpha", 2);
@@ -446,20 +445,6 @@ int main(int argc, char *argv[]) {
 
         run_test<ImageMin>("Min", 1);
         run_test<ImageMax>("Max", 1);
-=======
-        //CreateSmallAlpha().run_test("CreateSmallAlpha", 100);
-        CreateSmallPGM().run_test("CreateSmallPGM", 100);
-        CreateLargeAlpha().run_test("CreateLargeAlpha", 1);
-        CreateLargePGM().run_test("CreateLargePGM", 1);
-
-        //WriteSmallAlpha().run_test("WriteSmallAlpha", 100);
-        //WriteSmallPGM().run_test("WriteSmallPGM", 100);
-		WriteLargeAlpha().run_test("WriteLargeAlpha", 1);
-        WriteLargePGM().run_test("WriteLargePGM", 1);
-
-        ResizeAlpha().run_test("ResizeAlpha", 1);
-        ResizePGM().run_test("ResizeAlpha", 1);
->>>>>>> 7324c0bfee34dde45dfc396da16c51f8386d02ce
 
     } catch(std::string &s){
         std::cout << s << '\n';
