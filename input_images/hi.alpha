@@ -1,0 +1,18 @@
+Alpha
+    # This makes "Hi!"
+    # Yes, it's mostly indented.  Why not?
+    # It also has trailing spaces on every line after this.
+                                       
+    aa*      
+	azazazaza      
+    az aza aa za      
+	    azzzazaza      
+azazaza*	         
+azazazaza      
+    a*# this line is valid
+    
+	
+
+# Trailing blank lines, too!	       
+    # Remember, bad characters like $ are fine in comments.  
+	     
